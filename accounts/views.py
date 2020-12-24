@@ -12,7 +12,7 @@ def register_view(request):
         if serializer.is_valid():
             user=serializer.save()
             data['response']="Successfully Done"
-            data['username']=user.name
+            data['username']=user.username
             data['email'] = user.email
             data['first_name'] = user.first_name
             data['last_name'] = user.last_name
