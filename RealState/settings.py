@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'contact',
+    'realtor',
 
     'rest_framework',
 
