@@ -1,5 +1,6 @@
 from rest_framework import permissions
-from rest_framework.generics import ListAPIView,ListCreateAPIView,RetrieveAPIView,RetrieveDestroyAPIView,RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveDestroyAPIView, RetrieveUpdateAPIView, \
+    RetrieveAPIView
 from .models import Agent
 from .serializers import AgentSerializer
 

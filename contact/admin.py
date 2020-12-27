@@ -4,6 +4,4 @@ from django.contrib import admin
 
 from contact.models import Contact
 
-class AuthorAdmin(admin.ModelAdmin):
-    pass
 admin.site.register(Contact)
