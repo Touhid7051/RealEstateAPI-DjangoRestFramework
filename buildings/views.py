@@ -29,9 +29,12 @@ class Search(APIView):
     permission_classes = (permissions.AllowAny,)
     def post(self,request,format=None):
         data=self.request.data
-        str=data['str'] #input from User 'str' is the key
+        str=data['str'] #input from User 'str' is the key Normal Search
+        price_from=data['price_from'] #filter  lower range field
+        price_to=data['price_to'] #filter upper range field
+        city=data['city'] #filter by city
         q=(Q(description__icontains=str)) | (Q(title__icontains=str)) #Search by title and descreption fields
         queryset=Home.objects.filter(is_published=True)
-        queryset=queryset.filter(q)
+        queryset=queryset.filter(q).filter(price__gte=price_from).filter(price__lte=price_to).filter(city__iexact=city)
         serializer=HomeSerializer(queryset,many=True)
         return Response(serializer.data)
