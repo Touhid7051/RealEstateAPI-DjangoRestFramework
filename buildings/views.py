@@ -36,5 +36,6 @@ class Search(APIView):
         q=(Q(description__icontains=str)) | (Q(title__icontains=str)) #Search by title and descreption fields
         queryset=Home.objects.filter(is_published=True)
         queryset=queryset.filter(q).filter(price__gte=price_from).filter(price__lte=price_to).filter(city__iexact=city)
+        #gte is Greater than equal,lte is Less than Equal,iexact is Exact keyword
         serializer=HomeSerializer(queryset,many=True)
         return Response(serializer.data)
