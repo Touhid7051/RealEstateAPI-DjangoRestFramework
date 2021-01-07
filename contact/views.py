@@ -7,6 +7,7 @@ from .serializers import ContactSerializer
 # Create your views here.
 
 class ContactAPIView(APIView):
+    #permission_classes = (permissions.IsAuthenticated,)
     def get(self,request,format=None):
         contact=Contact.objects.all()
         serializer=ContactSerializer(contact,many=True)
